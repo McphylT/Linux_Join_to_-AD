@@ -1,0 +1,18 @@
+//Update your APT index
+  sudo apt -y update
+//Add the following repositories to your sources.list file.  
+  sudo tee -a /etc/apt/sources.list <<EOF
+  deb http://us.archive.ubuntu.com/ubuntu/ bionic universe
+  deb http://us.archive.ubuntu.com/ubuntu/ bionic-updates universe
+  EOF
+//Set server hostname & DNS
+  sudo hostnamectl set-hostname [myubuntu.example.com]
+//Confirm hostname
+   hostnamectl
+//Install required packages
+  sudo apt update
+  sudo apt -y install realmd libnss-sss libpam-sss sssd sssd-tools adcli samba-common-bin oddjob oddjob-mkhomedir packagekit
+//Join Ubuntu 20.04|18.04 / Debian 10 To Active Directory (AD) domain
+    sudo realm join -U Administrator example.com
+    
+//Full deatails on (https://computingforgeeks.com/join-ubuntu-debian-to-active-directory-ad-domain/)
